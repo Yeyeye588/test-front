@@ -1,0 +1,174 @@
+.treeTable {
+  :global {
+    .ant-table-tbody > tr > td {
+      border-bottom: none;
+    }
+    .ant-table-row-indent + .ant-table-row-expand-icon {
+      position: absolute;
+      z-index: 999;
+      opacity: 0;
+    }
+  }
+}
+.treeList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .treeItem {
+    position: relative;
+    width: 100%;
+  }
+}
+.treeItemBox {
+  display: flex;
+  justify-content: space-between;
+  .title {
+    flex: 1;
+  }
+  .value {
+    color: #292929;
+    font-weight: 400;
+    font-size: 24px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    line-height: 24px;
+  }
+}
+
+.circle {
+  position: relative;
+  z-index: 9;
+  display: inline-block;
+  margin-right: 8px;
+  background: #008599;
+  border-radius: 50%;
+}
+
+.level1 {
+  width: var(--circle1);
+  height: var(--circle1);
+  border: 2px solid #ffffff;
+  box-shadow: 0px 1px 4px;
+}
+.level2 {
+  width: var(--circle2);
+  height: var(--circle2);
+}
+.level3 {
+  width: var(--circle3);
+  height: var(--circle3);
+}
+
+/*
+  ——○
+*/
+.level2::before {
+  position: absolute;
+  top: calc(var(--circle2) / 2 - 1px);
+  left: calc(0% - (var(--indentSize) - var(--circle1) / 2));
+  z-index: 5;
+  display: var(--showLine);
+  width: calc(var(--indentSize) - var(--circle1) / 2);
+  height: 1px;
+  border-top: 1px solid var(--lineColor);
+  content: '';
+}
+/*
+    ——○
+*/
+.level3::before {
+  position: absolute;
+  top: calc(var(--circle3) / 2 - 1px);
+  left: calc(0% - (var(--indentSize) - var(--circle2) / 2));
+  z-index: 5;
+  display: var(--showLine);
+  width: calc(var(--indentSize) - var(--circle2) / 2);
+  height: 1px;
+  border-top: 1px solid var(--lineColor);
+  content: '';
+}
+
+.name1,
+.name2,
+.name3 {
+  display: flex;
+  align-items: center;
+}
+/*
+  ○
+  |
+*/
+.name1::after {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--padding) + var(--circle1) / 2 - 1px);
+  z-index: 5;
+  display: var(--showLine);
+  width: 1px;
+  height: 50%;
+  border-left: 1px solid var(--lineColor);
+  border-left-color: var(--parentBorderColor);
+  content: '';
+}
+
+/*
+    ○
+    |
+*/
+.name2::after {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--padding) + var(--indentSize) + var(--circle2) / 2 - 1px);
+  z-index: 5;
+  display: var(--showLine);
+  width: 1px;
+  height: 50%;
+  border-left: 1px solid var(--lineColor);
+  border-left-color: var(--parentBorderColor);
+  content: '';
+}
+/*
+  | ○
+*/
+.name2::before {
+  position: absolute;
+  top: 0;
+  left: calc(var(--padding) + var(--circle1) / 2 - 1px);
+  z-index: 5;
+  display: var(--showLine);
+  width: 1px;
+  height: var(--lastLineHeight);
+  border-left: 1px solid var(--lineColor);
+  content: '';
+}
+
+/*
+    | ○
+*/
+.name3::before {
+  position: absolute;
+  top: 0;
+  left: calc(var(--padding) + var(--circle1) / 2 - 1px);
+  z-index: 5;
+  display: var(--showLine);
+  width: 1px;
+  height: var(--laseParentHeight);
+  border-left: 1px solid var(--lineColor);
+  border-left-color: var(--childLeftBorderColor);
+  content: '';
+}
+
+/*
+  |   ○
+*/
+.name3::after {
+  position: absolute;
+  top: 0;
+  left: calc(var(--padding) + var(--indentSize) + var(--circle2) / 2 - 1px);
+  z-index: 5;
+  display: var(--showLine);
+  width: 1px;
+  height: var(--lastLineHeight);
+  border-left: 1px solid var(--lineColor);
+  content: '';
+}

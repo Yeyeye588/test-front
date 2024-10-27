@@ -1,0 +1,30 @@
+{
+  "id": "4721356",
+  "name": "teacher_code",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4379880",
+      "name": "供应商",
+      "font_class": "gongyingshang",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "15077400",
+      "name": "企业管理",
+      "font_class": "qiyeguanli",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "30114022",
+      "name": "保理商",
+      "font_class": "baolishang",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+import { fetchTicketDetails, fetchTicketSave } from '@/services/api';
+import { usePageProps } from '@/utils/hooks';
+import { PageContainer } from '@ant-design/pro-components';
+import { history } from '@umijs/max';
+import { useRequest } from 'ahooks';
+import {
+  Button,
+  Card,
+  Form,
+  Space,
+  Steps,
+  message
+} from 'antd';
+import React, { useState } from 'react';
+import { TicketDescriptions2 } from '../Common/Detail';
+import { TYPE_ENUM } from '@/common/enum';
+import { fetchTicketAudit } from '@/services/api';
+
+
+const Normal = React.memo(({}) => {
+  const { queryParams = {} } = usePageProps();
+  const [submitLoading, setSubmitLoading] = useState(false);
+
+  const handleSubmit = (type) => {
+    setSubmitLoading(true)
+    fetchTicketAudit({
+      id: queryParams?.id,
+      type: type.code,
+    }).then(() => {
+      message.success(`${type?.desc}`);
+      history.back();
+    }).finally(() => {
+      setSubmitLoading(false);
+    });
+  };
+
+  const { data: fromDetail, loading: detailLoading } = useRequest(
+    async (v) => {
+      if (!queryParams.id) {
+        return;
+      }
+      const result = await fetchTicketDetails({
+        id: queryParams?.id,
+        ...v,
+      });
+      const payload = result.data || {};
+      return {
+        ...payload,
+      };
+    },
+    {
+      onSuccess: () => {
+        if (!queryParams.id) {
+          return;
+        }
+      },
+      onError: (res) => {
+        message.error(res?.message || '请求失败');
+      },
+    },
+  );
+
+  return (
+    <PageContainer footerToolBarProps={{ portalDom: false }} loading={detailLoading}>
+      <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+        <Card title="开票进度">
+          <Steps
+            direction="vertical"
+            current={0}
+            items={[
+              {
+                title: '开票待确权',
+              },
+              {
+                title: '申请成功',
+              },
+            ]}
+          />
+        </Card>
+        <Card title="金票信息">
+          <TicketDescriptions2 detail={fromDetail}/>
+        </Card>
+        <div style={{textAlign: 'center'}}>
+          <Space>
+            <Button onClick={() => history.go(-1)}>返回</Button>
+            <Button type="primary" onClick={() => handleSubmit(TYPE_ENUM.CONFIRM)} loading={submitLoading}>开票确权</Button>
+          </Space>
+        </div>
+      </Space>
+    </PageContainer>
+  );
+});
+
+export default Normal;

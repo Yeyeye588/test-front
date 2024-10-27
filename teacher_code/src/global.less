@@ -1,0 +1,362 @@
+@import '~antd/es/style/variable.less';
+
+@tableBodyBwColor: #f5f7ff;
+@tableHeaderBgColor: #f5f7ff;
+@tableBodyHoverColor: #fafafa;
+
+// 菜单设置
+.ant-pro-layout .ant-pro-sider {
+  .ant-menu-item {
+    border-radius: 0 !important;
+  }
+  .ant-menu-sub {
+    padding-inline-start: 0 !important;
+  }
+  .ant-layout-sider-children {
+    padding-inline: 0 !important;
+  }
+  // 菜单选中左侧bar
+  .ant-menu-item-selected {
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: @primary-color;
+      content: '';
+    }
+  }
+  // 菜单分组title
+  .ant-menu-item-group-title {
+    height: 40px;
+    color: @primary-color;
+    line-height: 20px;
+    .ant-pro-base-menu-group-item-title {
+      height: 40px;
+    }
+  }
+  .ant-menu-item-divider {
+    display: none;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  left: unset;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.ant-pro-global-header-logo > a {
+  width: 100% !important;
+  overflow: hidden !important;
+  img {
+    height: 22px !important;
+  }
+  h1 {
+    display: none !important;
+  }
+}
+
+.ant-pro-page-container-children-content {
+  padding: 20px !important;
+}
+
+.ant-page-header {
+  background-color: #fff;
+  .ant-page-header-heading-title {
+    margin: 0;
+    color: #121212;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .ant-page-header-heading-left {
+    margin: 0;
+  }
+}
+
+.ant-pro-layout-has-footer {
+  margin-block-start: 0 !important;
+}
+.ant-pro-footer-bar {
+  background-color: #fff !important;
+}
+
+// 富文本编辑器样式
+.ql-align-center {
+  text-align: center;
+}
+.ql-align-right {
+  text-align: right;
+}
+.ql-align-left {
+  text-align: left;
+}
+
+.wordBreak {
+  word-break: break-all;
+}
+
+.search {
+  .ant-card-body {
+    padding-bottom: 0;
+  }
+}
+
+.submenu-icon {
+  position: absolute;
+  left: 12px;
+}
+
+.myForm {
+  .ant-form-item {
+    display: flex;
+    margin-right: 0;
+    margin-bottom: 24px;
+    > .ant-form-item-label {
+      box-sizing: content-box;
+      width: 120px;
+      line-height: 32px;
+      white-space: pre-wrap;
+      text-align: right;
+      label {
+        padding: 9px 0;
+        color: rgba(21, 21, 61, 0.65);
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 22px;
+      }
+    }
+    .ant-form-item-control {
+      width: 292px;
+      line-height: 38px;
+      &.has-error {
+        .ant-upload.ant-upload-select-picture-card {
+          border-color: #f5222d;
+        }
+      }
+    }
+  }
+  .ant-form-item-control-wrapper {
+    flex: 1;
+  }
+  .ant-input-number {
+    width: 100%;
+  }
+}
+
+.myTable {
+  .ant-table-tbody {
+    tr:nth-child(even) {
+      .ant-table-cell-fix-left,
+      .ant-table-cell-fix-right {
+        background: @tableBodyBwColor;
+      }
+      &:hover > td {
+        background: @tableBodyHoverColor;
+      }
+      background: @tableBodyBwColor;
+    }
+    tr.ant-table-placeholder {
+      background-color: #fff;
+    }
+  }
+  .ant-table-cell::before {
+    display: none;
+  }
+  .ant-table-thead {
+    th {
+      background: @tableHeaderBgColor;
+    }
+  }
+}
+
+.scrollTable {
+  th.ant-table-cell {
+    white-space: nowrap;
+  }
+  .ant-table-tbody {
+    tr:nth-child(even) {
+      background-color: #fff;
+    }
+    tr:nth-child(odd) {
+      background: @tableBodyBwColor;
+      &.ant-table-row > td {
+        background: @tableBodyBwColor;
+      }
+    }
+    tr.ant-table-row:hover > td {
+      background: @tableBodyHoverColor;
+    }
+    tr.ant-table-placeholder {
+      background-color: #fff;
+    }
+  }
+}
+
+.ant-col.ant-form-item-label {
+  height: 32px;
+}
+.ant-col-24 > .ant-pro-query-filter-actions {
+  .ant-col.ant-form-item-label {
+    display: none;
+  }
+}
+
+// BMap.Autocomplete地址关键字提示下拉框
+.tangram-suggestion-main {
+  z-index: 9999;
+}
+
+// 自定义菜单
+.customMenu {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  .ant-tabs-nav {
+    height: 100%;
+  }
+  .ant-tabs-tab {
+    margin: 0;
+    padding: 0 16px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-style: normal;
+    line-height: 22px;
+  }
+  .ant-tabs-tab:hover,
+  .ant-tabs-tab.ant-tabs-tab-active {
+    background: #3186f5;
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #fff;
+  }
+  .ant-tabs-top > .ant-tabs-nav::before,
+  .ant-tabs-top > div > .ant-tabs-nav::before {
+    border: none;
+  }
+  .ant-tabs-nav-more {
+    color: #fff;
+  }
+  .ant-tabs-ink-bar {
+    display: none;
+  }
+  .ant-tabs-tab-btn:focus,
+  .ant-tabs-tab-remove:focus,
+  .ant-tabs-tab-btn:active,
+  .ant-tabs-tab-remove:active {
+    color: #fff;
+  }
+}
+
+.customMenuContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 200px;
+  .customMenuBox {
+    margin: 0 15px;
+  }
+
+  .customMenuItemTitle {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    color: #3186f5;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-style: normal;
+    line-height: 22px;
+    .bar {
+      display: inline-block;
+      flex-shrink: 0;
+      width: 4px;
+      height: 12px;
+      margin-right: 8px;
+      background: #56d1db;
+      border-radius: 3px;
+    }
+  }
+
+  .customMenuItemContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 150px;
+  }
+}
+
+.customMenuItem {
+  margin: 0 0 16px 0;
+  padding: 0px 4px;
+  color: #595959;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-style: normal;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.customMenuItem:last-child {
+  margin: 0;
+}
+
+.customMenuItem:hover {
+  background: rgba(49, 134, 245, 0.1);
+  border-radius: 4px;
+}
+
+.customMenuItemActive {
+  color: #3186f5;
+  background: rgba(49, 134, 245, 0.1);
+  border-radius: 4px;
+}

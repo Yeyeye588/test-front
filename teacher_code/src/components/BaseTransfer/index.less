@@ -1,0 +1,44 @@
+.transfer {
+  &.ignore {
+    :global {
+      .ant-transfer-list {
+        flex: none;
+      }
+    }
+  }
+  :global {
+    .ant-transfer-list-body-customize-wrapper {
+      display: flex;
+      flex: auto;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .ant-transfer-list-body-search-wrapper {
+      height: 56px;
+    }
+    .ant-transfer-list-content {
+      position: relative;
+      height: 100%;
+      &.ant-transfer-list-content-empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .ant-transfer-list-pagination {
+      padding: 8px 0;
+    }
+  }
+  .tree {
+    :global {
+      .ant-tree-list {
+        position: relative;
+        height: 100%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 8px;
+        overflow: auto;
+      }
+    }
+  }
+}

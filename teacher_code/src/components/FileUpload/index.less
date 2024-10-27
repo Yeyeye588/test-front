@@ -1,0 +1,50 @@
+.myUpload {
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .imgcss {
+      color: rgba(21, 21, 61, 0.38);
+      font-size: 22px;
+    }
+    .title {
+      margin-top: 12px;
+      color: rgba(21, 21, 61, 0.65);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  :global {
+    .ant-upload.ant-upload-select-picture-card {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+    }
+    .ant-upload-list-picture .ant-upload-list-item-name,
+    .ant-upload-list-text .ant-upload-list-item-name {
+      position: absolute;
+      left: 20px;
+      max-width: 85%;
+    }
+    .ant-upload-list-picture .ant-upload-span,
+    .ant-upload-list-text .ant-upload-span {
+      justify-content: space-between;
+    }
+    .ant-upload {
+      width: 100%;
+    }
+    .ant-tooltip-inner {
+      word-break: break-all;
+    }
+  }
+}
+
+.scroll {
+  :global {
+    .ant-upload-list {
+      max-height: 180px;
+      overflow-y: auto;
+    }
+  }
+}
